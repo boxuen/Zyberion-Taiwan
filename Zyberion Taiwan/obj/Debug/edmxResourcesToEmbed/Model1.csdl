@@ -1,0 +1,366 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Car">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="User_ID" Type="Int64" />
+    <Property Name="Car_number" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Year" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Date" Type="DateTime" Precision="3" />
+    <Property Name="Car_id" Type="Int64" />
+    <Property Name="National" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Color" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Creat_time" Type="DateTime" Precision="3" />
+    <Property Name="Health" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="CarDisplay" Relationship="Self.FK_Car_CarDisplay" FromRole="Car" ToRole="CarDisplay" />
+    <NavigationProperty Name="User" Relationship="Self.FK_Car_User" FromRole="Car" ToRole="User" />
+    <NavigationProperty Name="ChargingRecord" Relationship="Self.FK_ChargingRecord_Car" FromRole="Car" ToRole="ChargingRecord" />
+  </EntityType>
+  <EntityType Name="CarBrand">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BrandNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BrandName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="CarDisplay" Relationship="Self.FK_CarDisplay_CarBrand" FromRole="CarBrand" ToRole="CarDisplay" />
+  </EntityType>
+  <EntityType Name="CarDisplay">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Brand_id" Type="Int64" />
+    <Property Name="Display_no" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Display_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Price" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Engine" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Mileage_completed" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Battery_Capacity" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Charging_time" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Maximum_speed" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="C0_100Speed" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SeatNumber" Type="Int32" />
+    <Property Name="Length" Type="Double" />
+    <Property Name="Width" Type="Double" />
+    <Property Name="Height" Type="Double" />
+    <NavigationProperty Name="Car" Relationship="Self.FK_Car_CarDisplay" FromRole="CarDisplay" ToRole="Car" />
+    <NavigationProperty Name="CarBrand" Relationship="Self.FK_CarDisplay_CarBrand" FromRole="CarDisplay" ToRole="CarBrand" />
+  </EntityType>
+  <EntityType Name="ChargeStation">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Charge_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Charge_Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Change_Status" Type="Int64" />
+    <Property Name="Charging_Pile_ID" Type="Guid" />
+    <Property Name="Charging_Gun_ID" Type="Guid" />
+    <NavigationProperty Name="Charging_Gun" Relationship="Self.FK_ChargeStation_Charging_Gun" FromRole="ChargeStation" ToRole="Charging_Gun" />
+    <NavigationProperty Name="ChargingPile" Relationship="Self.FK_ChargeStation_ChargingPile" FromRole="ChargeStation" ToRole="ChargingPile" />
+    <NavigationProperty Name="ChargingPrice" Relationship="Self.FK_ChargingPrice_ChargeStation" FromRole="ChargeStation" ToRole="ChargingPrice" />
+    <NavigationProperty Name="ChargingRecord" Relationship="Self.FK_ChargingRecord_ChargeStation" FromRole="ChargeStation" ToRole="ChargingRecord" />
+  </EntityType>
+  <EntityType Name="Charging_Gun">
+    <Key>
+      <PropertyRef Name="UUID" />
+    </Key>
+    <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UUID" Type="Guid" Nullable="false" />
+    <Property Name="ChgrgeGun_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ChargeGun_Menu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="ChargeStation" Relationship="Self.FK_ChargeStation_Charging_Gun" FromRole="Charging_Gun" ToRole="ChargeStation" />
+    <NavigationProperty Name="ChargingPrice" Relationship="Self.FK_ChargingPrice_Charging_Gun" FromRole="Charging_Gun" ToRole="ChargingPrice" />
+  </EntityType>
+  <EntityType Name="ChargingPile">
+    <Key>
+      <PropertyRef Name="UUID" />
+    </Key>
+    <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UUID" Type="Guid" Nullable="false" />
+    <Property Name="ChargePile_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Voltage" Type="Int32" />
+    <Property Name="Current" Type="Int32" />
+    <Property Name="Power" Type="Int32" />
+    <NavigationProperty Name="ChargeStation" Relationship="Self.FK_ChargeStation_ChargingPile" FromRole="ChargingPile" ToRole="ChargeStation" />
+  </EntityType>
+  <EntityType Name="ChargingPrice">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="User_id" Type="Int64" />
+    <Property Name="ChargePricing_Station_id" Type="Int64" />
+    <Property Name="ChargeGun_Menu" Type="Guid" />
+    <Property Name="Use_Time_id" Type="Int64" />
+    <NavigationProperty Name="ChargeStation" Relationship="Self.FK_ChargingPrice_ChargeStation" FromRole="ChargingPrice" ToRole="ChargeStation" />
+    <NavigationProperty Name="Charging_Gun" Relationship="Self.FK_ChargingPrice_Charging_Gun" FromRole="ChargingPrice" ToRole="Charging_Gun" />
+    <NavigationProperty Name="User" Relationship="Self.FK_ChargingPrice_User" FromRole="ChargingPrice" ToRole="User" />
+    <NavigationProperty Name="UseTime" Relationship="Self.FK_ChargingPrice_UseTime" FromRole="ChargingPrice" ToRole="UseTime" />
+  </EntityType>
+  <EntityType Name="ChargingRecord">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Car_id" Type="Int64" />
+    <Property Name="Charging_id" Type="Int64" />
+    <Property Name="Charging_Start_Time" Type="DateTime" Precision="3" />
+    <Property Name="Charging_End_Time" Type="DateTime" Precision="3" />
+    <Property Name="Charging_Start_Capacity" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Charging_End_Capacity" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Charging_Minutes" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Remaining_Capacity" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Car" Relationship="Self.FK_ChargingRecord_Car" FromRole="ChargingRecord" ToRole="Car" />
+    <NavigationProperty Name="ChargeStation" Relationship="Self.FK_ChargingRecord_ChargeStation" FromRole="ChargingRecord" ToRole="ChargeStation" />
+  </EntityType>
+  <EntityType Name="Level">
+    <Key>
+      <PropertyRef Name="ZMember_ID" />
+    </Key>
+    <Property Name="ZMember_ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ZMember_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ZMember_Situation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ZMember_Discount" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ZMember_Welfare" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="User" Relationship="Self.FK_User_Level" FromRole="Level" ToRole="User" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="E_MAIL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Birthday" Type="DateTime" Precision="0" />
+    <Property Name="Sex" Type="Int64" />
+    <Property Name="Level_id" Type="Int64" />
+    <Property Name="Status" Type="Int64" />
+    <Property Name="Creat_date" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Car" Relationship="Self.FK_Car_User" FromRole="User" ToRole="Car" />
+    <NavigationProperty Name="ChargingPrice" Relationship="Self.FK_ChargingPrice_User" FromRole="User" ToRole="ChargingPrice" />
+    <NavigationProperty Name="Level" Relationship="Self.FK_User_Level" FromRole="User" ToRole="Level" />
+  </EntityType>
+  <EntityType Name="UseTime">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Section" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Time" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Price" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="ChargingPrice" Relationship="Self.FK_ChargingPrice_UseTime" FromRole="UseTime" ToRole="ChargingPrice" />
+  </EntityType>
+  <Association Name="FK_Car_CarDisplay">
+    <End Role="CarDisplay" Type="Self.CarDisplay" Multiplicity="0..1" />
+    <End Role="Car" Type="Self.Car" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CarDisplay">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Car">
+        <PropertyRef Name="Car_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Car_User">
+    <End Role="User" Type="Self.User" Multiplicity="0..1" />
+    <End Role="Car" Type="Self.Car" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Car">
+        <PropertyRef Name="User_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ChargingRecord_Car">
+    <End Role="Car" Type="Self.Car" Multiplicity="0..1" />
+    <End Role="ChargingRecord" Type="Self.ChargingRecord" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Car">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ChargingRecord">
+        <PropertyRef Name="Car_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CarDisplay_CarBrand">
+    <End Role="CarBrand" Type="Self.CarBrand" Multiplicity="0..1" />
+    <End Role="CarDisplay" Type="Self.CarDisplay" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CarBrand">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="CarDisplay">
+        <PropertyRef Name="Brand_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ChargeStation_Charging_Gun">
+    <End Role="Charging_Gun" Type="Self.Charging_Gun" Multiplicity="0..1" />
+    <End Role="ChargeStation" Type="Self.ChargeStation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Charging_Gun">
+        <PropertyRef Name="UUID" />
+      </Principal>
+      <Dependent Role="ChargeStation">
+        <PropertyRef Name="Charging_Gun_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ChargeStation_ChargingPile">
+    <End Role="ChargingPile" Type="Self.ChargingPile" Multiplicity="0..1" />
+    <End Role="ChargeStation" Type="Self.ChargeStation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ChargingPile">
+        <PropertyRef Name="UUID" />
+      </Principal>
+      <Dependent Role="ChargeStation">
+        <PropertyRef Name="Charging_Pile_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ChargingPrice_ChargeStation">
+    <End Role="ChargeStation" Type="Self.ChargeStation" Multiplicity="0..1" />
+    <End Role="ChargingPrice" Type="Self.ChargingPrice" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ChargeStation">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ChargingPrice">
+        <PropertyRef Name="ChargePricing_Station_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ChargingRecord_ChargeStation">
+    <End Role="ChargeStation" Type="Self.ChargeStation" Multiplicity="0..1" />
+    <End Role="ChargingRecord" Type="Self.ChargingRecord" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ChargeStation">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ChargingRecord">
+        <PropertyRef Name="Charging_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ChargingPrice_Charging_Gun">
+    <End Role="Charging_Gun" Type="Self.Charging_Gun" Multiplicity="0..1" />
+    <End Role="ChargingPrice" Type="Self.ChargingPrice" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Charging_Gun">
+        <PropertyRef Name="UUID" />
+      </Principal>
+      <Dependent Role="ChargingPrice">
+        <PropertyRef Name="ChargeGun_Menu" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ChargingPrice_User">
+    <End Role="User" Type="Self.User" Multiplicity="0..1" />
+    <End Role="ChargingPrice" Type="Self.ChargingPrice" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ChargingPrice">
+        <PropertyRef Name="User_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ChargingPrice_UseTime">
+    <End Role="UseTime" Type="Self.UseTime" Multiplicity="0..1" />
+    <End Role="ChargingPrice" Type="Self.ChargingPrice" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UseTime">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ChargingPrice">
+        <PropertyRef Name="Use_Time_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_Level">
+    <End Role="Level" Type="Self.Level" Multiplicity="0..1" />
+    <End Role="User" Type="Self.User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Level">
+        <PropertyRef Name="ZMember_ID" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="Level_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ZCharge_PlanEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Car" EntityType="Self.Car" />
+    <EntitySet Name="CarBrand" EntityType="Self.CarBrand" />
+    <EntitySet Name="CarDisplay" EntityType="Self.CarDisplay" />
+    <EntitySet Name="ChargeStation" EntityType="Self.ChargeStation" />
+    <EntitySet Name="Charging_Gun" EntityType="Self.Charging_Gun" />
+    <EntitySet Name="ChargingPile" EntityType="Self.ChargingPile" />
+    <EntitySet Name="ChargingPrice" EntityType="Self.ChargingPrice" />
+    <EntitySet Name="ChargingRecord" EntityType="Self.ChargingRecord" />
+    <EntitySet Name="Level" EntityType="Self.Level" />
+    <EntitySet Name="User" EntityType="Self.User" />
+    <EntitySet Name="UseTime" EntityType="Self.UseTime" />
+    <AssociationSet Name="FK_Car_CarDisplay" Association="Self.FK_Car_CarDisplay">
+      <End Role="CarDisplay" EntitySet="CarDisplay" />
+      <End Role="Car" EntitySet="Car" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Car_User" Association="Self.FK_Car_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="Car" EntitySet="Car" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ChargingRecord_Car" Association="Self.FK_ChargingRecord_Car">
+      <End Role="Car" EntitySet="Car" />
+      <End Role="ChargingRecord" EntitySet="ChargingRecord" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CarDisplay_CarBrand" Association="Self.FK_CarDisplay_CarBrand">
+      <End Role="CarBrand" EntitySet="CarBrand" />
+      <End Role="CarDisplay" EntitySet="CarDisplay" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ChargeStation_Charging_Gun" Association="Self.FK_ChargeStation_Charging_Gun">
+      <End Role="Charging_Gun" EntitySet="Charging_Gun" />
+      <End Role="ChargeStation" EntitySet="ChargeStation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ChargeStation_ChargingPile" Association="Self.FK_ChargeStation_ChargingPile">
+      <End Role="ChargingPile" EntitySet="ChargingPile" />
+      <End Role="ChargeStation" EntitySet="ChargeStation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ChargingPrice_ChargeStation" Association="Self.FK_ChargingPrice_ChargeStation">
+      <End Role="ChargeStation" EntitySet="ChargeStation" />
+      <End Role="ChargingPrice" EntitySet="ChargingPrice" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ChargingRecord_ChargeStation" Association="Self.FK_ChargingRecord_ChargeStation">
+      <End Role="ChargeStation" EntitySet="ChargeStation" />
+      <End Role="ChargingRecord" EntitySet="ChargingRecord" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ChargingPrice_Charging_Gun" Association="Self.FK_ChargingPrice_Charging_Gun">
+      <End Role="Charging_Gun" EntitySet="Charging_Gun" />
+      <End Role="ChargingPrice" EntitySet="ChargingPrice" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ChargingPrice_User" Association="Self.FK_ChargingPrice_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="ChargingPrice" EntitySet="ChargingPrice" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ChargingPrice_UseTime" Association="Self.FK_ChargingPrice_UseTime">
+      <End Role="UseTime" EntitySet="UseTime" />
+      <End Role="ChargingPrice" EntitySet="ChargingPrice" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_Level" Association="Self.FK_User_Level">
+      <End Role="Level" EntitySet="Level" />
+      <End Role="User" EntitySet="User" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
