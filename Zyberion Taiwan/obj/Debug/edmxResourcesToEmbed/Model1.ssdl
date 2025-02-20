@@ -36,6 +36,7 @@
     <Property Name="Engine" Type="nvarchar" MaxLength="50" />
     <Property Name="Mileage_completed" Type="nvarchar" MaxLength="50" />
     <Property Name="Battery_Capacity" Type="nvarchar" MaxLength="50" />
+    <Property Name="Motor_Power" Type="nvarchar" MaxLength="50" />
     <Property Name="Charging_time" Type="nvarchar" MaxLength="50" />
     <Property Name="Maximum_speed" Type="nvarchar" MaxLength="50" />
     <Property Name="0-100Speed" Type="nvarchar" MaxLength="50" />

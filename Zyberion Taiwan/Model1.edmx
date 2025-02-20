@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Car">
           <Key>
             <PropertyRef Name="ID" />
@@ -41,6 +41,7 @@
           <Property Name="Engine" Type="nvarchar" MaxLength="50" />
           <Property Name="Mileage_completed" Type="nvarchar" MaxLength="50" />
           <Property Name="Battery_Capacity" Type="nvarchar" MaxLength="50" />
+          <Property Name="Motor_Power" Type="nvarchar" MaxLength="50" />
           <Property Name="Charging_time" Type="nvarchar" MaxLength="50" />
           <Property Name="Maximum_speed" Type="nvarchar" MaxLength="50" />
           <Property Name="0-100Speed" Type="nvarchar" MaxLength="50" />
@@ -344,8 +345,7 @@
             <End Role="User" EntitySet="User" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -398,6 +398,7 @@
           <Property Name="Height" Type="Double" />
           <NavigationProperty Name="Car" Relationship="Self.FK_Car_CarDisplay" FromRole="CarDisplay" ToRole="Car" />
           <NavigationProperty Name="CarBrand" Relationship="Self.FK_CarDisplay_CarBrand" FromRole="CarDisplay" ToRole="CarBrand" />
+          <Property Name="Motor_Power" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="ChargeStation">
           <Key>
@@ -746,6 +747,7 @@
           <EntitySetMapping Name="CarDisplay">
             <EntityTypeMapping TypeName="Model.CarDisplay">
               <MappingFragment StoreEntitySet="CarDisplay">
+                <ScalarProperty Name="Motor_Power" ColumnName="Motor_Power" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Brand_id" ColumnName="Brand_id" />
                 <ScalarProperty Name="Display_no" ColumnName="Display_no" />

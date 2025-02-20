@@ -36,6 +36,7 @@ namespace Zyberion_Taiwan
         public Nullable<double> Length { get; set; }
         public Nullable<double> Width { get; set; }
         public Nullable<double> Height { get; set; }
+        public string Motor_Power { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Car> Car { get; set; }

@@ -29,6 +29,7 @@
     <EntitySetMapping Name="CarDisplay">
       <EntityTypeMapping TypeName="Model.CarDisplay">
         <MappingFragment StoreEntitySet="CarDisplay">
+          <ScalarProperty Name="Motor_Power" ColumnName="Motor_Power" />
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="Brand_id" ColumnName="Brand_id" />
           <ScalarProperty Name="Display_no" ColumnName="Display_no" />

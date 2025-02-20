@@ -49,6 +49,7 @@
     <Property Name="Height" Type="Double" />
     <NavigationProperty Name="Car" Relationship="Self.FK_Car_CarDisplay" FromRole="CarDisplay" ToRole="Car" />
     <NavigationProperty Name="CarBrand" Relationship="Self.FK_CarDisplay_CarBrand" FromRole="CarDisplay" ToRole="CarBrand" />
+    <Property Name="Motor_Power" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="ChargeStation">
     <Key>
