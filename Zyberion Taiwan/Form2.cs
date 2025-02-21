@@ -166,6 +166,7 @@ namespace Zyberion_Taiwan
 
                               select new
                               {
+                                  Column19 = c.ID,
                                   Column9 = cd.Display_Name,
                                   Column10 = c.Car_number,
                                   Column11 = u.Name,
@@ -181,7 +182,19 @@ namespace Zyberion_Taiwan
             }
         
             }
+        //點選指定的欄位內容顯示該資料
+        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int index = dataGridView2.SelectedCells[0].RowIndex;
+            var id = dataGridView2.Rows[index].Cells[1].Value.ToString(); // 會抓取型號
+            var carid = dataGridView2.Rows[index].Cells[0].Value;
+            //MessageBox.Show(carid.ToString());
+
+            var f3 = new Form3(id,Convert.ToInt64( carid));
+            f3.ShowDialog();
+
         }
+    }
     }
 
     

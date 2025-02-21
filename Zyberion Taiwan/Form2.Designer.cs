@@ -51,21 +51,25 @@
             this.label1 = new System.Windows.Forms.Label();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.button3 = new System.Windows.Forms.Button();
+            this.comboBox5 = new System.Windows.Forms.ComboBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.comboBox4 = new System.Windows.Forms.ComboBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.label6 = new System.Windows.Forms.Label();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.label5 = new System.Windows.Forms.Label();
+            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.label6 = new System.Windows.Forms.Label();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.label7 = new System.Windows.Forms.Label();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.comboBox5 = new System.Windows.Forms.ComboBox();
-            this.button3 = new System.Windows.Forms.Button();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.carDisplayBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.carBrandBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.carBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.Column19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column9 = new System.Windows.Forms.DataGridViewLinkColumn();
             this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column11 = new System.Windows.Forms.DataGridViewLinkColumn();
@@ -76,18 +80,15 @@
             this.Column15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.carDisplayBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.carBrandBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.carBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel3.SuspendLayout();
             this.tabPage2.SuspendLayout();
-            this.panel2.SuspendLayout();
-            this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            this.panel4.SuspendLayout();
+            this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.carDisplayBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.carBrandBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.carBindingSource)).BeginInit();
@@ -314,25 +315,31 @@
             this.tabPage2.Text = "車輛管理";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // panel2
+            // dataGridView2
             // 
-            this.panel2.Controls.Add(this.button1);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 478);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1121, 84);
-            this.panel2.TabIndex = 0;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(802, 29);
-            this.button1.Margin = new System.Windows.Forms.Padding(4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(118, 40);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "登出";
-            this.button1.UseVisualStyleBackColor = true;
+            this.dataGridView2.AllowUserToAddRows = false;
+            this.dataGridView2.AllowUserToDeleteRows = false;
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column19,
+            this.Column9,
+            this.Column10,
+            this.Column11,
+            this.Column18,
+            this.Column12,
+            this.Column13,
+            this.Column14,
+            this.Column15,
+            this.Column16,
+            this.Column17});
+            this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView2.Location = new System.Drawing.Point(4, 107);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.ReadOnly = true;
+            this.dataGridView2.RowTemplate.Height = 24;
+            this.dataGridView2.Size = new System.Drawing.Size(1105, 346);
+            this.dataGridView2.TabIndex = 1;
+            this.dataGridView2.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
             // 
             // panel4
             // 
@@ -353,88 +360,15 @@
             this.panel4.Size = new System.Drawing.Size(1105, 103);
             this.panel4.TabIndex = 0;
             // 
-            // label4
+            // button3
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(149, 21);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(43, 15);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "型號：";
-            // 
-            // comboBox3
-            // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Items.AddRange(new object[] {
-            "全部"});
-            this.comboBox3.Location = new System.Drawing.Point(198, 18);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(119, 23);
-            this.comboBox3.TabIndex = 1;
-            this.comboBox3.Text = "全部";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(132, 63);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(67, 15);
-            this.label5.TabIndex = 2;
-            this.label5.Text = "出廠日期：";
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(198, 58);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(119, 21);
-            this.dateTimePicker1.TabIndex = 3;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(331, 63);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(19, 15);
-            this.label6.TabIndex = 4;
-            this.label6.Text = "至";
-            // 
-            // dateTimePicker2
-            // 
-            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker2.Location = new System.Drawing.Point(361, 61);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(119, 21);
-            this.dateTimePicker2.TabIndex = 5;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(358, 21);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(67, 15);
-            this.label7.TabIndex = 6;
-            this.label7.Text = "出廠國別：";
-            // 
-            // comboBox4
-            // 
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Items.AddRange(new object[] {
-            "全部"});
-            this.comboBox4.Location = new System.Drawing.Point(431, 18);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(119, 23);
-            this.comboBox4.TabIndex = 7;
-            this.comboBox4.Text = "全部";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(584, 21);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(67, 15);
-            this.label8.TabIndex = 8;
-            this.label8.Text = "主要色系：";
+            this.button3.Location = new System.Drawing.Point(645, 59);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(131, 29);
+            this.button3.TabIndex = 10;
+            this.button3.Text = "查詢";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // comboBox5
             // 
@@ -447,39 +381,128 @@
             this.comboBox5.TabIndex = 9;
             this.comboBox5.Text = "全部";
             // 
-            // button3
+            // label8
             // 
-            this.button3.Location = new System.Drawing.Point(645, 59);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(131, 29);
-            this.button3.TabIndex = 10;
-            this.button3.Text = "查詢";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(584, 21);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(67, 15);
+            this.label8.TabIndex = 8;
+            this.label8.Text = "主要色系：";
             // 
-            // dataGridView2
+            // comboBox4
             // 
-            this.dataGridView2.AllowUserToAddRows = false;
-            this.dataGridView2.AllowUserToDeleteRows = false;
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column9,
-            this.Column10,
-            this.Column11,
-            this.Column18,
-            this.Column12,
-            this.Column13,
-            this.Column14,
-            this.Column15,
-            this.Column16,
-            this.Column17});
-            this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView2.Location = new System.Drawing.Point(4, 107);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.ReadOnly = true;
-            this.dataGridView2.RowTemplate.Height = 24;
-            this.dataGridView2.Size = new System.Drawing.Size(1105, 346);
-            this.dataGridView2.TabIndex = 1;
+            this.comboBox4.FormattingEnabled = true;
+            this.comboBox4.Items.AddRange(new object[] {
+            "全部"});
+            this.comboBox4.Location = new System.Drawing.Point(431, 18);
+            this.comboBox4.Name = "comboBox4";
+            this.comboBox4.Size = new System.Drawing.Size(119, 23);
+            this.comboBox4.TabIndex = 7;
+            this.comboBox4.Text = "全部";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(358, 21);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(67, 15);
+            this.label7.TabIndex = 6;
+            this.label7.Text = "出廠國別：";
+            // 
+            // dateTimePicker2
+            // 
+            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker2.Location = new System.Drawing.Point(361, 61);
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.Size = new System.Drawing.Size(119, 21);
+            this.dateTimePicker2.TabIndex = 5;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(331, 63);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(19, 15);
+            this.label6.TabIndex = 4;
+            this.label6.Text = "至";
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker1.Location = new System.Drawing.Point(198, 58);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(119, 21);
+            this.dateTimePicker1.TabIndex = 3;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(132, 63);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(67, 15);
+            this.label5.TabIndex = 2;
+            this.label5.Text = "出廠日期：";
+            // 
+            // comboBox3
+            // 
+            this.comboBox3.FormattingEnabled = true;
+            this.comboBox3.Items.AddRange(new object[] {
+            "全部"});
+            this.comboBox3.Location = new System.Drawing.Point(198, 18);
+            this.comboBox3.Name = "comboBox3";
+            this.comboBox3.Size = new System.Drawing.Size(119, 23);
+            this.comboBox3.TabIndex = 1;
+            this.comboBox3.Text = "全部";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(149, 21);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(43, 15);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "型號：";
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.button1);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel2.Location = new System.Drawing.Point(0, 478);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1121, 84);
+            this.panel2.TabIndex = 0;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(802, 29);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(118, 40);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "登出";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // carDisplayBindingSource
+            // 
+            this.carDisplayBindingSource.DataSource = typeof(Zyberion_Taiwan.CarDisplay);
+            // 
+            // carBrandBindingSource
+            // 
+            this.carBrandBindingSource.DataSource = typeof(Zyberion_Taiwan.CarBrand);
+            // 
+            // carBindingSource
+            // 
+            this.carBindingSource.DataSource = typeof(Zyberion_Taiwan.Car);
+            // 
+            // Column19
+            // 
+            this.Column19.DataPropertyName = "Column19";
+            this.Column19.HeaderText = "ID";
+            this.Column19.Name = "Column19";
+            this.Column19.ReadOnly = true;
+            this.Column19.Visible = false;
             // 
             // Column9
             // 
@@ -555,18 +578,6 @@
             this.Column17.Name = "Column17";
             this.Column17.ReadOnly = true;
             // 
-            // carDisplayBindingSource
-            // 
-            this.carDisplayBindingSource.DataSource = typeof(Zyberion_Taiwan.CarDisplay);
-            // 
-            // carBrandBindingSource
-            // 
-            this.carBrandBindingSource.DataSource = typeof(Zyberion_Taiwan.CarBrand);
-            // 
-            // carBindingSource
-            // 
-            this.carBindingSource.DataSource = typeof(Zyberion_Taiwan.Car);
-            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -586,10 +597,10 @@
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.tabPage2.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.carDisplayBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.carBrandBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.carBindingSource)).EndInit();
@@ -639,6 +650,7 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.ComboBox comboBox5;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column19;
         private System.Windows.Forms.DataGridViewLinkColumn Column9;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
         private System.Windows.Forms.DataGridViewLinkColumn Column11;
