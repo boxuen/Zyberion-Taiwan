@@ -1,8 +1,10 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -66,11 +68,12 @@ namespace Zyberion_Taiwan
                     label10.Text = "充電紀錄（共" + result[0].total_record_count + "次）：";
                     
                 }
-
+                
                 var record = (from cr in db.ChargingRecord
                               where cr.Car_id == carid
                               select new
                               {
+                                  Column7 = Guid.NewGuid(), // 自動產生新的guid
                                   Column1 = cr.Charging_Start_Time,
                                   Column2 = cr.Charging_End_Time,
                                   Column3 = cr.Charging_Start_Capacity,
@@ -87,6 +90,55 @@ namespace Zyberion_Taiwan
         private void Form3_Load(object sender, EventArgs e)
         {
 
+        }
+        // 將Datagridview內容=>JSON
+        private void Export(DataGridView dataGridView, string filepath)
+        {
+            try
+            {
+                //這行程式碼的作用是建立一個 List<Dictionary<string, object>> 來存儲 DataGridView 中的資料。
+                List<Dictionary<string,object>> rows = new List<Dictionary< string,object>>();
+                foreach(DataGridViewRow row in dataGridView.Rows)
+                {
+                    if (!row.IsNewRow)
+                    {
+                        Dictionary<string, object> rowdata = new Dictionary<string, object>();
+                        foreach(DataGridViewCell cell in row.Cells)
+                        {
+                            string column = dataGridView.Columns[cell.ColumnIndex].Name;
+                            //這行程式碼的作用是將 DataGridView 單元格 (Cell) 的資料存入 Dictionary<string, object>，並處理 null 值的情況。
+                            rowdata[column] = cell.Value??DBNull.Value;
+                        }
+                        rows.Add(rowdata);
+                        
+                        
+                        // 將 List 轉換為 JSON 格式，並使用 Formatting.Indented(縮排) 讓 JSON 格式化輸出
+                        string json = JsonConvert.SerializeObject(rows,Formatting.Indented);
+                        File.WriteAllText(filepath, json);
+                        MessageBox.Show("Export to Json Successful !!!");
+
+                    }
+                }
+            }
+            catch (Exception ex) 
+            {
+                MessageBox.Show("Error!!!!" + ex.Message);
+            }
+        }
+        private void button1_Click(object sender, EventArgs e)
+        {
+           //開啟儲存對話框
+            using (SaveFileDialog saveFileDialog = new SaveFileDialog())
+            {
+                saveFileDialog.Title = "儲存檔案";
+               // saveFileDialog.FileName = "Export JSON.json";
+            }
+
+            if(saveFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                string filepath = saveFileDialog1.FileName;
+                Export(dataGridView1,filepath);
+            }
         }
     }
 }

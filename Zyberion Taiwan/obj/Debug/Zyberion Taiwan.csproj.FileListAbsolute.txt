@@ -15,3 +15,5 @@ D:\55屆商務軟體設計\Zyberion Taiwan\boxuen\Zyberion-Taiwan\Zyberion Taiwa
 D:\55屆商務軟體設計\Zyberion Taiwan\boxuen\Zyberion-Taiwan\Zyberion Taiwan\obj\Debug\Zyberion Taiwan.exe
 D:\55屆商務軟體設計\Zyberion Taiwan\boxuen\Zyberion-Taiwan\Zyberion Taiwan\obj\Debug\Zyberion Taiwan.pdb
 D:\55屆商務軟體設計\Zyberion Taiwan\boxuen\Zyberion-Taiwan\Zyberion Taiwan\obj\Debug\Zyberion_Taiwan.Form3.resources
+D:\55屆商務軟體設計\Zyberion Taiwan\boxuen\Zyberion-Taiwan\Zyberion Taiwan\bin\Debug\Newtonsoft.Json.dll
+D:\55屆商務軟體設計\Zyberion Taiwan\boxuen\Zyberion-Taiwan\Zyberion Taiwan\bin\Debug\Newtonsoft.Json.xml
