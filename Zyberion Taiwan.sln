@@ -5,6 +5,8 @@ VisualStudioVersion = 17.10.35027.167
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zyberion Taiwan", "Zyberion Taiwan\Zyberion Taiwan.csproj", "{D100B489-6BF2-4132-B038-21A36534D248}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApplication7", "WebApplication7\WebApplication7.csproj", "{DE9F6029-F11F-4141-B44C-C985CF01CD70}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{D100B489-6BF2-4132-B038-21A36534D248}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D100B489-6BF2-4132-B038-21A36534D248}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D100B489-6BF2-4132-B038-21A36534D248}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE9F6029-F11F-4141-B44C-C985CF01CD70}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE9F6029-F11F-4141-B44C-C985CF01CD70}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE9F6029-F11F-4141-B44C-C985CF01CD70}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE9F6029-F11F-4141-B44C-C985CF01CD70}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
